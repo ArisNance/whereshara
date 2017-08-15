@@ -25,6 +25,20 @@
 <link href="css/new-age.min.css" rel="stylesheet">
 
 <style>
+#wordbox {
+/*opacity: 0;*/
+margin: 30px auto 0;
+display: block;
+width: 300px;
+height: 40px;
+font-size: 30px;
+text-align: center;
+background: #fff;
+border-radius: 6px;
+color: #black;
+transition: 1s linear;
+}
+
 /*.btn{*/
 /*background:transparent;*/
 /*}*/
@@ -37,6 +51,10 @@ background-color:#ffffff;
 .btn-xls{
 background:rgba(0, 0, 0, 0.2);
 }
+
+form{
+margin-left:0%;
+}
 </style>
 </head>
 
@@ -47,22 +65,26 @@ background:rgba(0, 0, 0, 0.2);
 <div class="row h-100">
 <div class="col-lg-7 my-auto">
 <div class="header-content mx-auto">
-<h1 class="mb-5">We're distrupting the Subscriptions industry!</h1>
-<!--<a href="#download" class="btn btn-outline btn-xl"> Signup with Facebook</a>-->
-<%= link_to 'Signup with Facebook', "/auth/facebook", id: "sign_in", class: "btn btn-outline btn-xl" %>
+<h1 class="mb-5">Running out of ideas? Generate a dummy email address instantly.</h1>
+<FORM NAME="WordForm">
+  <INPUT TYPE=TEXT NAME="WordBox" id="wordbox">
+  <BR>
+  <INPUT TYPE=BUTTON VALUE="Generate" onClick="PickRandomWord(document.WordForm);" id="button">
+</FORM>
+
 </div>
 <br>
-<ul>
-  <li>
-    Setup Reminders for any subscription or service.
-  </li>
-  <li>
-    Receive a text message on your phone each time a subscription is set to expire.
-  </li>
-  <li>
-    Find the best subscriptions around.
-  </li>
-</ul>
+<!--<ul>-->
+<!--  <li>-->
+<!--    Setup Reminders for any subscription or service.-->
+<!--  </li>-->
+<!--  <li>-->
+<!--    Receive a text message on your phone each time a subscription is set to expire.-->
+<!--  </li>-->
+<!--  <li>-->
+<!--    Find the best subscriptions around.-->
+<!--  </li>-->
+<!--</ul>-->
 </div>
 <div class="col-lg-5 my-auto">
 <div class="device-container">
@@ -82,36 +104,6 @@ background:rgba(0, 0, 0, 0.2);
 </div>
 </div>
 </header>
-
-<section class="download bg-primary text-center" id="download">
-<div class="container">
-<div class="row">
-<div class="col-md-8 mx-auto">
-<h2 class="section-heading">The best subscriptions over & over again!</h2>
-<!--<p>Our web-app is completely free and private!</p>-->
-<!--<p>Don't be charged for subscriptions. No signup necessary </p>-->
-<br>
-<div class="badges">
-<a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
-<a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-
-<section class="cta">
-<div class="cta-content">
-<div class="container">
-<h2>Stop waiting.<br>Start Subscribing.</h2>
-  <%= link_to 'Generate a random email!', home_dummy_path, class: "btn btn-outline btn-xl" %>
-</div>
-</div>
-<div class="overlay"></div>
-</section>
-
-
 
 <footer>
 <div class="container">
@@ -146,6 +138,38 @@ background:rgba(0, 0, 0, 0.2);
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
+</script>
+
+<script>
+var NumberOfWords = 5
+
+var words = new BuildArray(NumberOfWords)
+
+// Use the following variables to 
+// define your random words:
+words[1] = "@gmail.com"
+words[2] = "@live.co.uk"
+words[3] = "@hotmail.com"
+words[4] = "@blueyonder.co.uk"
+words[5] = "hello@mail.com"
+
+function BuildArray(size) {
+  this.length = size
+  for (var i = 1; i <= size; i++) {
+    this[i] = null
+  }
+  return this
+}
+
+function PickRandomWord(frm) {
+  // Generate a random number between 1 and NumberOfWords
+  var rnd = Math.ceil(Math.random() * NumberOfWords)
+
+  // Display the word inside the text box
+  frm.WordBox.value = words[rnd]
+}
+
+
 </script>
 </body>
 

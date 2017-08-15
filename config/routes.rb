@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   get 'persons/:id/profile' => 'persons#show', :as => :persons_profile
   get 'home/about', :path => 'about'
+  get 'home/dummy', :path => 'dummy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
