@@ -1,0 +1,28 @@
+
+<hr>
+
+
+<% @person.subscriptions.each do |subscription| %>
+<div class="box-inner">
+
+<hr>
+<h3 class="name"><%= subscription.title %></h3>
+<h4 class="occupation"> </h4>
+<% if current_person %>
+<!--edit links-->
+<p class="location">
+<%= link_to edit_subscription_path(subscription) do %>
+<i class="fa fa-pencil fa-fw action-icons" data-toggle="tooltip" data-placement="top" title="Edit"></i>
+<% end %>
+
+<%= link_to subscription, method: :delete, data: { confirm: 'Are you sure?' } do %>
+<i class="fa fa-ban fa-fw action-icons" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+<% end %>
+</p>
+<!--end-->
+<% end %>
+<h3 class="followers-title"> </h3>
+
+</div>
+
+<% end %>

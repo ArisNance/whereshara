@@ -1,0 +1,51 @@
+<style>
+#dropdownMenu1{
+background:transparent;
+}
+
+li a{
+color: #131212;
+}
+li{
+text-decoration: none;
+background-color: transparent;
+-webkit-text-decoration-skip: objects;
+font-size: 20px;
+text-transform: uppercase;
+font-weight: 300;
+font-family: sans-serif;
+float: initial;
+}
+</style>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <%= image_tag("w-logo.png") %>
+      </a>
+    </div>
+
+    <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+  <div id="">
+    <% if current_person %>
+    Welcome <strong><%= current_person.name %></strong>!
+    <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>
+    <span class="caret"></span>
+  </button>
+<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  <li><a href="#">    <!--facebook-->
+
+  <!--end--></a></li>
+  <% if current_person %>
+  <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+  <strong><li><%= link_to "Profile", persons_profile_url(current_person) %></li></strong>
+  <% end %>
+  <li role="separator" class="divider"></li>
+</ul>
+</div>
+  </div>
+</nav>
