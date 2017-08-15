@@ -29,9 +29,14 @@ gem "figaro"
 gem 'delayed_job_active_record'
 # Need daemons to start delayed_job
 gem 'daemons'
+gem 'rails_admin', '~> 1.2'
+# admin theme
+gem 'rails_admin_rollincode', '~> 1.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'rails_12factor', group: :production
+gem 'pg'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
