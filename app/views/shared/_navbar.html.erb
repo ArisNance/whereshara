@@ -5,6 +5,7 @@ background:transparent;
 
 li a{
 color: #131212;
+font-size:13px;
 }
 li{
 text-decoration: none;
@@ -15,6 +16,11 @@ text-transform: uppercase;
 font-weight: 300;
 font-family: sans-serif;
 float: initial;
+}
+
+.btn.focus, .btn:focus{
+outline:none;
+box-shadow:none;
 }
 </style>
 <nav class="navbar navbar-default">
@@ -29,15 +35,13 @@ float: initial;
     <% if current_person %>
     Welcome <strong><%= current_person.name %></strong>!
     <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    Toggle Menu
   <% end %>
-</div>
+  </div>
     <span class="caret"></span>
   </button>
 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-  <li><a href="#">    <!--facebook-->
-
-  <!--end--></a></li>
+  <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
   <% if current_person %>
   <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
   <strong><li><%= link_to "Profile", persons_profile_url(current_person) %></li></strong>
