@@ -12,12 +12,7 @@ body {
   color: #404040;
 }
 .wrapper {
-  background: -webkit-gradient(linear, left bottom, right top, color-stop(0, #62075c), color-stop(1, #c30eb8));
-  background: -webkit-linear-gradient(left bottom, #62075c 0, #c30eb8 100%);
-  background: -moz-linear-gradient(left bottom, #62075c 0, #c30eb8 100%);
-  background: -o-linear-gradient(left bottom, #62075c 0, #c30eb8 100%);
-  background: -ms-linear-gradient(left bottom, #62075c 0, #c30eb8 100%);
-  background: linear-gradient(left bottom, #62075c 0, #c30eb8 100%);
+  background:linear-gradient(to left,#7b4397,#dc2430);
   position: relative;
   z-index: 1;
 }
@@ -28,7 +23,7 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url("http://remtsoy.com/experiments/user_card/img/food.png");
+  /*background-image: url("http://remtsoy.com/experiments/user_card/img/food.png");*/
   z-index: 2;
   opacity: 0.3;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
@@ -41,7 +36,7 @@ body {
 }
 .box-wrapper {
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
@@ -250,7 +245,7 @@ h5 {
 <h3 class="name"><%= current_person.name %></h3>
 <h4 class="occupation"> </h4>
 <p class="location"><i class="fa fa-map-marker"></i> </p>
-<h3 class="followers-title">2.5k+ Subscriptions</h3>
+<h3 class="followers-title"><%= @person.subscriptions.count %> Total Subscriptions</h3>
 <!--<ul class="followers-list">-->
 <!--	<li><a href="#"><img src="http://remtsoy.com/experiments/user_card/img/follower-1.jpg" alt=""></a></li>-->
 <!--	<li><a href="#"><img src="http://remtsoy.com/experiments/user_card/img/follower-2.jpg" alt=""></a></li>-->

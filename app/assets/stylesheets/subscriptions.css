@@ -3,4 +3,28 @@
 form{
 width:20%;
 margin-left: 40%;
+margin-top: 10%;
+}
+
+body{
+background:linear-gradient(to left,#7b4397,#dc2430);
+}
+
+.navbar{
+background:white;
+}
+
+label{
+color: aliceblue;
+}
+
+#tags_p{
+color: floralwhite;
+}
+
+#subscription_company{
+font-size: 22px;
+background: transparent;
+color: white;
+border-color: aliceblue;
 }

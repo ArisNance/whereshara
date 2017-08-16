@@ -5,7 +5,15 @@ background:transparent;
 
 li a{
 color: #131212;
-font-size:13px;
+font-size: 16px;
+letter-spacing: 1.5px;
+padding-left: 17px;
+font-weight: 700;
+opacity: 0.9;
+}
+a:hover {
+color: #607D8B;
+text-decoration: none; 
 }
 li{
 text-decoration: none;
@@ -21,6 +29,11 @@ float: initial;
 .btn.focus, .btn:focus{
 outline:none;
 box-shadow:none;
+}
+
+.dropdown-menu{
+border:none;
+min-width: 13rem;
 }
 </style>
 <nav class="navbar navbar-default">
@@ -41,12 +54,12 @@ box-shadow:none;
     <span class="caret"></span>
   </button>
 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-  <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
   <% if current_person %>
   <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-  <strong><li><%= link_to "Profile", persons_profile_url(current_person) %></li></strong>
+  <strong><li><%= link_to "View Profile", persons_profile_url(current_person) %></li></strong>
+  <% else %>
+  <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
   <% end %>
-  <li role="separator" class="divider"></li>
 </ul>
 </div>
   </div>
