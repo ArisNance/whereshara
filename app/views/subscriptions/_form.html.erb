@@ -48,7 +48,7 @@ text-transform: uppercase;
 <%= f.label :Select_a_company %><br>
     <p id="tags_p">Don't see the Company? Please Let us know and We'll add it.  Golikealocal@gmail.com</p>
     <br>
-<%= f.select(:company, options_for_select([['Hulu'], ['Nexflix'], ['Itunes'], ['Spotify'], ['Sound Cloud'], ['Xbox'], ['Microsoft'], ['TNT'], ['HBO'], ['Amazon Prime']  ]), class: "city-select") %>
+<%= f.select(:company, options_for_select([['Hulu'], ['Netflix'], ['Itunes'], ['Spotify'], ['SoundCloud'], ['Xbox'], ['Microsoft'], ['TNT'], ['HBO'], ['Amazon Prime'], ['Other']  ]), class: "company-select") %>
 </div>
 <br>
 <br>
@@ -76,7 +76,8 @@ text-transform: uppercase;
 <br>
 
 <div class="form-group">
-<%= f.label :The_link_to_cancel_your_account %><br>
+<%= f.label :The_link_to_cancel_your_account %>
+<i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Optional. Add the profile url here, it'll be quicker to delete it later."></i>
 <%= f.text_field :url, placeholder: 'www.hulu.co/4356/yourprofile', class: "form-control border-input" %>
 </div>
 <br>

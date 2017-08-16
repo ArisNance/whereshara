@@ -15,6 +15,7 @@ end
 
 # GET /subscriptions/new
 def new
+  
 @subscription = current_person.subscriptions.build
 end
 
@@ -44,7 +45,7 @@ end
 def update
 respond_to do |format|
   if @subscription.update(subscription_params)
-    format.html { redirect_to root_url, notice: 'Subscription was successfully updated.' }
+    format.html { redirect_to persons_profile_url(current_person.id), notice: 'Subscription was successfully updated.' }
     format.json { render :show, status: :ok, location: @subscription }
   else
     format.html { render :edit }
