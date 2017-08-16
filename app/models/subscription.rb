@@ -6,25 +6,23 @@ class Subscription < ActiveRecord::Base
   after_create :reminder
 
  # Notify our appointment attendee X minutes before the appointment time
-  @@REMINDER_TIME = 5.minutes
+  def reminder
+    @twilio_number = '+12065391879'
+		@client = Twilio::REST::Client.new 'AC4e9ac55e2bbd7fc3a434e3d37896782e','5934a63e2b41eddfaa0275f20b328db9'
+    time_str = ((self.time).localtime).strftime("%I:%M%p on %b. %d, %Y")
+    reminder = "Hi #{self.title}. Just a reminder that you have an appointment coming up at #{time_str}."
+    @client.messages.create(
+      :from => @twilio_number,
+      :to => self.phone_number,
+      :body => reminder,
+    )
+  end
 
-	def reminder
-    @twilio_number = ENV['TWILIO_NUMBER']
-    account_sid = ENV['TWILIO_ACCOUNT_SID']
-    @client = Twilio::REST::Client.new account_sid, ENV['TWILIO_AUTH_TOKEN']
-    	time_str = ((self.time).localtime).strftime("%I:%M%p on %b. %d, %Y")
-    	reminder = "Hi #{self.title}. Just a reminder that you have an appointment coming up at #{time_str}."
-    	message = @client.messages.create(
-      		:from => @twilio_number,
-      		:to => self.phone_number,
-      		:body => reminder,
-    	)
-    	puts message.to
- 	end
+  def when_to_run
+    minutes_before_appointment = 1.minutes
+    time - minutes_before_appointment
+  end
 
-    def when_to_run
-    	time - @@REMINDER_TIME
- 	    end
 
   	handle_asynchronously :reminder, :run_at => Proc.new { |i| i.when_to_run }
 end
