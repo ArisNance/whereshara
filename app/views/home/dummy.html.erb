@@ -55,6 +55,13 @@ background:rgba(0, 0, 0, 0.2);
 form{
 margin-left:0%;
 }
+
+/* iphone 6 Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { 
+#wordbox{
+font-size:25px;
+}
+}
 </style>
 </head>
 
@@ -69,7 +76,7 @@ margin-left:0%;
 <FORM NAME="WordForm">
   <INPUT TYPE=TEXT NAME="WordBox" id="wordbox">
   <BR>
-  <INPUT TYPE=BUTTON VALUE="Generate" onClick="PickRandomWord(document.WordForm);" id="button" class="btn btn-primary">
+  <INPUT TYPE=BUTTON VALUE="Generate" onClick="PickRandomWord(document.WordForm);" id="button" class="btn btn-outline btn-xl">
 </FORM>
 
 </div>
@@ -123,15 +130,15 @@ margin-left:0%;
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/popper/popper.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--<script src="vendor/jquery/jquery.min.js"></script>-->
+<!--<script src="vendor/popper/popper.min.js"></script>-->
+<!--<script src="vendor/bootstrap/js/bootstrap.min.js"></script>-->
 
 <!-- Plugin JavaScript -->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
 
 <!-- Custom scripts for this template -->
-<script src="js/new-age.min.js"></script>
+<!--<script src="js/new-age.min.js"></script>-->
 
 <!-- tooltips -->
 <script>
@@ -147,15 +154,21 @@ var words = new BuildArray(NumberOfWords)
 
 // Use the following variables to 
 // define your random words:
-// move to own file
-words[1] = "@gmail.com"
-words[2] = "@live.co.uk"
+words[1] = "cultivate_23@gmail.com"
+words[2] = "europounds12@live.co.uk"
 words[3] = "@hotmail.com"
-words[4] = "@blueyonder.co.uk"
-words[5] = "hello@mail.com"
-words[6] = "mthurn@live.com
-
-
+words[4] = "dream12@blueyonder.co.uk"
+words[5] = "comingsoon@mail.com"
+words[6] = "yourtone@mail.com"
+words[7] = "@mail.com"
+words[8] = "aldia@mail.com"
+words[9] = "bdome@mail.com"
+words[10] = "domainiserpie@mail.com"
+words[12] = "kivaterra@mail.com"
+words[13] = "crackout6@mail.com"
+words[14] = "heybuddie@mail.com"
+words[15] = "opensoucemail@mail.com"
+words[16] = "thisishacked@mail.com"
 
 function BuildArray(size) {
   this.length = size

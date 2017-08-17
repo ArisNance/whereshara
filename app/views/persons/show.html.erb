@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100);
@@ -43,7 +45,7 @@ color: #be2e50;
   position: relative;
   z-index: 3;
   height: 100%;
-  margin-top: 60%;
+  margin-top: 40%;
 }
 .box-wrapper {
   position: absolute;
@@ -243,7 +245,12 @@ h5 {
 .social-list > li:last-child > a {
   border-right: none;
 }
-
+/* iphone 6 Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { 
+.wrapper-inner {
+  margin-top:190%;
+  }
+}
 </style>
 
 <div class="wrapper">
@@ -256,7 +263,7 @@ h5 {
 <div class="box-inner">
 <h3 class="name"><%= current_person.name %></h3>
 <h4 class="occupation"> </h4>
-<p class="location"><i class="fa fa-map-marker"></i> </p>
+<p class="location"><i class="fa fa-amazon"></i> <i class="fa fa-apple"></i> <i class="fa fa-paypal"></i> <i class="fa fa-spotify"></i> <i class="fa fa-youtube"></i> <i class="fa fa-steam"></i> </p>
 <h3 class="followers-title"><%= @person.subscriptions.count %> Total Subscriptions</h3>
 
 </div>

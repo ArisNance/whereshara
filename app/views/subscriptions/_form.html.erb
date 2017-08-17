@@ -1,4 +1,9 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+a {
+color: #a0dbf9;
+}
 .time-control{
 display:none;
 }
@@ -13,7 +18,7 @@ font-weight: 800;
 input#subscription_phone_number{
 color: #a93466;
 font-weight: 700;
-margin-left: -10%;
+margin-left: -5%;
 }
 
 input#subscription_url{
@@ -23,6 +28,20 @@ font-weight: 700;
 
 label{
 text-transform: uppercase;
+}
+
+/* iphone 6 Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { 
+form {
+width:70%;
+margin-left: 10%;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { 
+.btn-primary {
+/*margin-left: -50%;*/
+  }
 }
 </style>
 <%= form_for(@subscription) do |f| %>
@@ -46,7 +65,9 @@ text-transform: uppercase;
 <br>
 <div class="form-group">
 <%= f.label :Select_a_company %><br>
-    <p id="tags_p">Don't see the Company? Please Let us know and We'll add it.  Golikealocal@gmail.com</p>
+    <p id="tags_p">Don't see your Brand? Let us know and We'll add it.  <%= mail_to "nance.aris@gmail.com", "Here", bcc: "nance.aris@gmail.com",
+subject: "Add a Brand", body: "Please include the name or names of the Brands." %>
+</p>
     <br>
 <%= f.select(:company, options_for_select([['Hulu'], ['Netflix'], ['Itunes'], ['Spotify'], ['SoundCloud'], ['Xbox'], ['Microsoft'], ['TNT'], ['HBO'], ['Amazon'], ['Other']  ]), class: "company-select") %>
 </div>

@@ -47,17 +47,17 @@ background:rgba(0, 0, 0, 0.2);
 <div class="row h-100">
 <div class="col-lg-7 my-auto">
 <div class="header-content mx-auto">
-<h1 class="mb-5">We're distrupting the Subscriptions industry!</h1>
+<h1 class="mb-5">We're managing the Subscriptions industry!</h1>
 <!--<a href="#download" class="btn btn-outline btn-xl"> Signup with Facebook</a>-->
 <%= link_to 'Signup with Facebook', "/auth/facebook", id: "sign_in", class: "btn btn-outline btn-xl" %>
 </div>
 <br>
 <ul>
   <li>
-    Setup Reminders for any subscription or service.
+    Set Reminders for any subscription or service.
   </li>
   <li>
-    Receive a text message on your phone each time a subscription is set to expire.
+    Receive a text message on your phone each time a subscription or service is set to expire.
   </li>
   <li>
     Find the best subscriptions around.
@@ -83,11 +83,24 @@ background:rgba(0, 0, 0, 0.2);
 </div>
 </header>
 
+<section class="cta">
+<div class="cta-content">
+<div class="container">
+<h2>Stop waiting.<br>Start Subscribing.</h2>
+  <%= link_to 'Generate a random email!', home_dummy_path, class: "btn btn-outline btn-xl" %>
+</div>
+</div>
+<div class="overlay"></div>
+</section>
+
+
+<!--donate section-->
 <section class="download bg-primary text-center" id="download">
 <div class="container">
 <div class="row">
 <div class="col-md-8 mx-auto">
-<h2 class="section-heading">The best subscriptions over & over again!</h2>
+<h2 class="section-heading">We'd like to get a real domain & Keep our service free!</h2>
+<%= link_to 'Donate', home_donate_path, class: "btn btn-outline btn-xl" %>
 <!--<p>Our web-app is completely free and private!</p>-->
 <!--<p>Don't be charged for subscriptions. No signup necessary </p>-->
 <br>
@@ -101,15 +114,6 @@ background:rgba(0, 0, 0, 0.2);
 </section>
 
 
-<section class="cta">
-<div class="cta-content">
-<div class="container">
-<h2>Stop waiting.<br>Start Subscribing.</h2>
-  <%= link_to 'Generate a random email!', home_dummy_path, class: "btn btn-outline btn-xl" %>
-</div>
-</div>
-<div class="overlay"></div>
-</section>
 
 
 
