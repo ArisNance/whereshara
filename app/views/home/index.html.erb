@@ -11,23 +11,12 @@
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom fonts for this template -->
-<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-
-<!-- Plugin CSS -->
-<link rel="stylesheet" href="device-mockups/device-mockups.min.css">
-
-<!-- Custom styles for this template -->
-<link href="css/new-age.min.css" rel="stylesheet">
 
 <style>
-/*.btn{*/
-/*background:transparent;*/
-/*}*/
+.fa-info-circle{
+color: #6ae86f;
+}
+
 #contact: {
 display:none;
 }
@@ -40,6 +29,43 @@ background:rgba(0, 0, 0, 0.2);
 li{
 text-transform:capitalize;
 }
+
+/*video*/
+.video-wrapper {
+    position: relative;
+}
+
+.video-wrapper > video {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.video-wrapper > video.has-media-controls-hidden::-webkit-media-controls {
+    display: none;
+}
+
+.video-overlay-play-button {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 10px calc(50% - 50px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    opacity: 0.95;
+    cursor: pointer;
+    background-image: linear-gradient(transparent, #000);
+    transition: opacity 150ms;
+}
+
+.video-overlay-play-button:hover {
+    opacity: 1;
+}
+
+.video-overlay-play-button.is-hidden {
+    display: none;
+}
 </style>
 </head>
 
@@ -50,9 +76,13 @@ text-transform:capitalize;
 <div class="row h-100">
 <div class="col-lg-7 my-auto">
 <div class="header-content mx-auto">
-<h1 class="mb-5">Don't be charged for that <span style="color:#86408c; font-size:larger; font-weight:600;">1</span> subscription you forgot to cancel!</h1>
+<h1 class="mb-5">Don't be charged for that <span style="color:#6ae86f; font-size:larger; font-weight:600;">1</span> subscription you forgot to cancel!</h1>
 <!--<a href="#download" class="btn btn-outline btn-xl"> Signup with Facebook</a>-->
+<% if current_person %>
+<%= link_to 'Help Keep us Free!', home_donate_path, class: "btn btn-outline btn-xl" %>
+<% else %>
 <%= link_to 'Signup with Facebook', "/auth/facebook", id: "sign_in", class: "btn btn-outline btn-xl" %>
+<% end %>
 </div>
 <br>
 <ul>
@@ -73,7 +103,12 @@ text-transform:capitalize;
 <div class="device">
 <div class="screen">
   <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-  <img src="img/demo-screen-1.jpg" class="img-fluid" alt="">
+  <div class="video-wrapper">
+
+    <iframe width="325" height="180" poster="http://www.creativelysimpledesign.com/wp-content/uploads/2017/08/Screen-Shot-2017-08-19-at-2.08.28-PM.png" src="https://www.youtube.com/embed/zCTu9IKUATE" frameborder="0" allowfullscreen>
+      
+    </iframe>
+</div>
 </div>
 <div class="button">
   <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -91,6 +126,8 @@ text-transform:capitalize;
 <div class="container">
 <h2>Stop waiting.<br>Start Subscribing.</h2>
   <%= link_to 'Generate a random email!', home_dummy_path, class: "btn btn-outline btn-xl" %>
+  <br>
+  <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="This feature is in continuous development."></i>
 </div>
 </div>
 <div class="overlay"></div>
@@ -103,7 +140,9 @@ text-transform:capitalize;
 <div class="row">
 <div class="col-md-8 mx-auto">
 <h2 class="section-heading">We'd like to get a real domain & Keep our service free!</h2>
-<%= link_to 'Make A Donate Now', home_donate_path, class: "btn btn-outline btn-xl" %>
+<%= link_to 'Make A Donation Now', home_donate_path, class: "btn btn-outline btn-xl" %>
+<br>
+<i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Make a secure donation via Paypal."></i>
 <!--<p>Our web-app is completely free and private!</p>-->
 <!--<p>Don't be charged for subscriptions. No signup necessary </p>-->
 <br>
@@ -128,25 +167,48 @@ text-transform:capitalize;
 <a href="#">Privacy</a>
 </li>
 <li class="list-inline-item">
-<a href="#">Donate</a>
+<a href="/donate">Donate</a>
 </li>
 <li class="list-inline-item">
-<a href="#">ABOUT</a>
+<a href="https://www.twitter.com/endthis_now" target="blank"><i class="fa fa-twitter"></i></a>
 </li>
 </ul>
 </div>
 </footer>
 
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/popper/popper.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script>
+var videoPlayButton,
+	videoWrapper = document.getElementsByClassName('video-wrapper')[0],
+    video = document.getElementsByTagName('video')[0],
+    videoMethods = {
+        renderVideoPlayButton: function() {
+            if (videoWrapper.contains(video)) {
+				this.formatVideoPlayButton()
+                video.classList.add('has-media-controls-hidden')
+                videoPlayButton = document.getElementsByClassName('video-overlay-play-button')[0]
+                videoPlayButton.addEventListener('click', this.hideVideoPlayButton)
+            }
+        },
 
-<!-- Plugin JavaScript -->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        formatVideoPlayButton: function() {
+            videoWrapper.insertAdjacentHTML('beforeend', '\
+                <svg class="video-overlay-play-button" viewBox="0 0 200 200" alt="Play video">\
+                    <circle cx="100" cy="100" r="90" fill="none" stroke-width="15" stroke="#fff"/>\
+                    <polygon points="70, 55 70, 145 145, 100" fill="#fff"/>\
+                </svg>\
+            ')
+        },
 
-<!-- Custom scripts for this template -->
-<script src="js/new-age.min.js"></script>
+        hideVideoPlayButton: function() {
+            video.play()
+            videoPlayButton.classList.add('is-hidden')
+            video.classList.remove('has-media-controls-hidden')
+            video.setAttribute('controls', 'controls')
+        }
+	}
+
+videoMethods.renderVideoPlayButton()
+</script>
 
 <!-- tooltips -->
 <script>

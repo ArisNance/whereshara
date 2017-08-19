@@ -15,8 +15,14 @@ end
 
 # GET /subscriptions/new
 def new
-  
+  # check if user has two subscriptions or less
+  if current_person.subscriptions.size <= 2
+  # if the user has less than 2 subscriptions, we'll allow them to create a 3rd
 @subscription = current_person.subscriptions.build
+  # but if the user aleady has three subscriptions, then we redirect them with a message
+elsif current_person.subscriptions.size >= 3
+redirect_to persons_profile_url(current_person.id), notice: 'You can only have 3 Susbcriptions for now!'
+  end
 end
 
 # GET /subscriptions/1/edit
@@ -59,7 +65,7 @@ end
 def destroy
 @subscription.destroy
 respond_to do |format|
-  format.html { redirect_to root_url, notice: 'Subscription was successfully destroyed.' }
+  format.html { redirect_to :back, notice: 'Subscription was successfully destroyed.' }
   format.json { head :no_content }
 end
 end

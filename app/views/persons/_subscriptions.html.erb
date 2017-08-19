@@ -17,8 +17,10 @@ color: #983a79 !important;
 box-shadow:none;
 }
 
-.avatar img {
+.bold{
+font-weight:600;
 }
+
 </style>
 
 
@@ -27,9 +29,9 @@ box-shadow:none;
 <div class="avatar">
 <!--needs to be refactored-->
 <% if subscription.company == "Hulu" %>
-<img style= "margin-top: 40%; opacity: 0.6;" src="https://www.hulu.com/press/wp-content/uploads/2016/10/hulu-interactive-rgb-1.png">
+<img style= "margin-top: 50%; opacity: 0.6;" src="https://www.hulu.com/press/wp-content/uploads/2016/10/hulu-interactive-rgb-1.png">
 <% elsif subscription.company == "Netflix" %>
-<img style= "margin-top: 40%; opacity: 0.6;" src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c529.png">
+<img style= "margin-top: 50%; opacity: 0.6;" src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c529.png">
 <% elsif subscription.company == "Spotify" %>
 <img style="border-radius: 0px; margin-top: 30%; opacity: 0.6; margin-left: 35px; width: 30%" src="https://images.vexels.com/media/users/3/137413/isolated/preview/4acb8e52632aa9b7c874b878eaf02bc4-spotify-icon-logo-by-vexels.png">
 <% elsif subscription.company == "Xbox" %>
@@ -37,11 +39,11 @@ box-shadow:none;
 <% elsif subscription.company == "Itunes" %>
 <img style="border-radius: 0px; margin-top: 45%; opacity: 0.6; margin-left: -10px;" src="https://planetared.com/wp-content/uploads/2017/03/itunes.png">
 <% elsif subscription.company == "Microsoft" %>
-<img style="border-radius: 0px; margin-top: 25%; margin-left: 20px; width: 40%" src="http://diylogodesigns.com/blog/wp-content/uploads/2016/04/Microsoft-Logo-icon-png-Transparent-Background.png">
+<img style="border-radius: 0px; margin-top: 25%; margin-left: 20px; width: 50%" src="http://diylogodesigns.com/blog/wp-content/uploads/2016/04/Microsoft-Logo-icon-png-Transparent-Background.png">
 <% elsif subscription.company == "SoundCloud" %>
-<img style="margin-top: 25%; width: 40%; margin-left: 7%; opacity: 0.6;" src="http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c537.png">
+<img style="margin-top: 25%; width: 50%; margin-left: 7%; opacity: 0.6;" src="http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c537.png">
 <% elsif subscription.company == "HBO" %>
-<img style="border-radius: 0px; margin-top: 20%; margin-left: 30" src="https://vignette3.wikia.nocookie.net/logopedia/images/d/d6/HBO_logo_blue.svg/revision/latest/scale-to-width-down/497?cb=20150301002247">
+<img style="border-radius: 0px; opacity: 0.6; margin-top: 60%; margin-left: 30" src="https://vignette3.wikia.nocookie.net/logopedia/images/d/d6/HBO_logo_blue.svg/revision/latest/scale-to-width-down/497?cb=20150301002247">
 <% elsif subscription.company == "TNT" %>
 <img style="border-radius: 0px; margin-top: 30%; opacity: 0.6; margin-left: 30px; width: 30%" src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/TNT_(TV_Channel).svg/1200px-TNT_(TV_Channel).svg.png">
 <% elsif subscription.company == "Amazon" %>
@@ -53,7 +55,7 @@ box-shadow:none;
 <div class="box-inner">
 
 
-<h3 class="name"><%= subscription.title %></h3>
+<h3 class="name bold"><%= subscription.title %></h3>
 <h4 class="occupation"> </h4>
 <% if current_person %>
 <!--edit links-->
@@ -77,7 +79,8 @@ box-shadow:none;
 
 </div>
 </div>
-
+<br>
+<br>
 <% end %>
 
 <%= will_paginate @subscriptions %>
