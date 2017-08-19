@@ -37,6 +37,9 @@ background-color:#ffffff;
 .btn-xls{
 background:rgba(0, 0, 0, 0.2);
 }
+li{
+text-transform:capitalize;
+}
 </style>
 </head>
 
@@ -47,7 +50,7 @@ background:rgba(0, 0, 0, 0.2);
 <div class="row h-100">
 <div class="col-lg-7 my-auto">
 <div class="header-content mx-auto">
-<h1 class="mb-5">We're managing the Subscriptions industry!</h1>
+<h1 class="mb-5">Don't be charged for that <span style="color:#86408c; font-size:larger; font-weight:600;">1</span> subscription you forgot to cancel!</h1>
 <!--<a href="#download" class="btn btn-outline btn-xl"> Signup with Facebook</a>-->
 <%= link_to 'Signup with Facebook', "/auth/facebook", id: "sign_in", class: "btn btn-outline btn-xl" %>
 </div>
@@ -100,7 +103,7 @@ background:rgba(0, 0, 0, 0.2);
 <div class="row">
 <div class="col-md-8 mx-auto">
 <h2 class="section-heading">We'd like to get a real domain & Keep our service free!</h2>
-<%= link_to 'Donate', home_donate_path, class: "btn btn-outline btn-xl" %>
+<%= link_to 'Make A Donate Now', home_donate_path, class: "btn btn-outline btn-xl" %>
 <!--<p>Our web-app is completely free and private!</p>-->
 <!--<p>Don't be charged for subscriptions. No signup necessary </p>-->
 <br>

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="description" content="WhenItEnds helps manages your subscriptions, and keeps them in a fun place.">
-  <meta name="keywords" content="subscriptions, free online subscriptions, subscription management, online subscription management">
+  <meta name="description" content="WhenDoesItEnd is a free subscription management system. Don't be charged for that 1 subscription you forgot to cancel.">
+  <meta name="keywords" content="subscriptions, free online subscriptions, subscription management, online subscription management, free subscriptions">
   <link rel="icon" type="image/png" href="http://www.creativelysimpledesign.com/wp-content/uploads/2017/08/wf-1.png">
   <title>When Does it End</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!--tracking code-->
+  <%= analytics_init if GoogleAnalytics.valid_tracker? %>
   <!--bootstrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -32,6 +32,9 @@ gem 'daemons'
 gem 'rails_admin', '~> 1.2'
 # admin theme
 gem 'rails_admin_rollincode', '~> 1.0'
+# google analytics
+gem 'google-analytics-rails', '1.1.1'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
