@@ -15,7 +15,7 @@ class SubadsController < ApplicationController
 
   # GET /subads/new
   def new
-    if current_person.admin == true
+    if current_person.admin == true 
     @subad = Subad.new
   else
     redirect_to root_path, notice: 'Sorry, not authorized to add a Freebie :-).'
