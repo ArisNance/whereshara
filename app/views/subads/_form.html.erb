@@ -1,0 +1,55 @@
+<%= form_for(@subad) do |f| %>
+  <% if @subad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subad.errors.count, "error") %> prohibited this subad from being saved:</h2>
+
+      <ul>
+      <% @subad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+  <%= f.label :Name_this_subscription %>
+  <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Try to be Creative! Remeber, Users will see this first."></i>
+  <%= f.text_field :title, placeholder: '45 Days Free', class: "form-control border-input" %>
+  </div>
+  <br>
+  <br>
+  <div class="form-group">
+  <%= f.label :Descrition %>
+  <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Keep it short and sweet!"></i>
+  <%= f.text_area :content, placeholder: 'Short Descrition', class: "form-control border-input" %>
+  </div>
+  <br>
+  <br>
+  <div class="form-group">
+  <%= f.label :Brand_or_Company_name %>
+ 
+  <%= f.text_field :brand, placeholder: 'Hulu, Netflix, Apple, etc.', class: "form-control border-input" %>
+  </div>
+  <br>
+  <br>
+  <div class="form-group">
+  <%= f.label :Image_or_logo %>
+  <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="The image should be a URL and Transparent if able."></i>
+  <%= f.text_field :image, placeholder: 'https://yourimage.com/image.png', class: "form-control border-input" %>
+  </div>
+  <br>
+  <br>
+  <div class="form-group">
+  <%= f.label :Subscription_url %>
+  <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="The URL where Users signup!"></i>
+  <%= f.text_field :url, placeholder: 'Where does the User signup?', class: "form-control border-input" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>

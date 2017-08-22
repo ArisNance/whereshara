@@ -1,0 +1,2 @@
+module SubadsHelper
+end

@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
     
     def index
+        @subads = Subad.all
     end
     
     def about

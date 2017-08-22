@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Subads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subads.each do |subad| %>
+      <tr>
+        <td><%= link_to 'Show', subad %></td>
+        <td><%= link_to 'Edit', edit_subad_path(subad) %></td>
+        <td><%= link_to 'Destroy', subad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subad', new_subad_path %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :subads, :path => 'freebies'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :subscriptions
   devise_for :users
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   get 'home/about', :path => 'about'
   get 'home/dummy', :path => 'dummy'
   get 'home/donate', :path => 'donate'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

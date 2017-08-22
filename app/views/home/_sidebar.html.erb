@@ -1,0 +1,277 @@
+<style>
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+a {
+color: #78909C;
+text-decoration: none;
+background-color: transparent;
+-webkit-text-decoration-skip: objects;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+width: 100%;
+top: 100%;
+background: #37474F;
+position: absolute;
+height: 500%;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 0;
+    }
+    #wrapper.toggled {
+        padding-left: 250px;
+    }
+    #sidebar-wrapper {
+        width: 0;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        /*width: 250px;*/
+    }
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+
+
+/*cards*/
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin: -150px;
+  float: left;
+  perspective: 500px;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .content {
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #f1f1f1;
+  line-height: 300px;
+  color: #03446A;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.back {
+  background: #03446A;
+  color: white;
+  transform: rotateY( 180deg );
+}
+
+.row{
+margin-top: 15%;
+}
+.lead{
+font-size: 3.5rem;
+letter-spacing: 10px;
+padding-top: 50px;
+padding-bottom: 50px;
+display:none;
+}
+#subad_image{
+width:50%;
+margin-top: -60%;
+}
+#sub_header{
+color: #ffffff;
+font-size: 80px;
+font-weight: 600;
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+#sub_header {
+font-size:30px;
+word-break: break-word;
+  }
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+.card {
+position: absolute;
+top: 50%;
+/* left: 50%; */
+width: 300px;
+height: 300px;
+/* margin: -150px; */
+/* float: left; */
+/* perspective: 500px; */
+}
+}
+</style>
+<!-- Sidebar -->
+ <a href="#menu-toggle" class="btn btn-outline btn-xl" id="menu-toggle">Free Subscriptions</a>
+<!-- /#sidebar-wrapper -->
+<div id="wrapper">
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1 id="sub_header">The Only Place to Find the Best #Subscriptions!</h1>
+        <p class="lead">Support for adding your own #Subscriptions will be coming soon. Help us raise some more moola!.</p>
+      </div>
+      <!--<h3>Three equal columns</h3>-->
+      <!--<p>Get three equal-width columns <strong>starting at desktops and scaling to large desktops</strong>. On mobile devices, tablets and below, the columns will automatically stack.</p>-->
+<div class="row">
+<% @subads.each do |subad| %>
+<div class="col-md-4">
+    <div class="card">
+        <div class="content">
+        <div class="front">
+        <div class="image" style="position: absolute;">
+            <%= image_tag(subad.image, id: "subad_image") %>
+        </div>
+            <%= subad.title %>
+        </div>
+        <div class="back">
+          <%= link_to 'View', subad %>
+        </div>
+        </div>
+    </div>
+</div>
+<% end %>
+      </div>
+
+
+    </div> <!-- /container -->
+
+
+</div>
+        <!-- /#sidebar-wrapper -->
+<!--Javascript-->
+<!-- Menu Toggle Script -->
+
+<!-- card flip -->
+<script>
+$("#menu-toggle").click(function(e) {
+e.preventDefault();
+$("#wrapper").toggleClass("toggled");
+});
+</script>
