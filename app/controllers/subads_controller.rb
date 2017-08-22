@@ -1,6 +1,7 @@
 class SubadsController < ApplicationController
   before_action :set_subad, only: [:show, :edit, :update, :destroy]
 
+
   # GET /subads
   # GET /subads.json
   def index
@@ -14,7 +15,11 @@ class SubadsController < ApplicationController
 
   # GET /subads/new
   def new
+    if current_person.admin == true
     @subad = Subad.new
+  else
+    redirect_to root_path, notice: 'Sorry, not authorized to add a Freebie :-).'
+    end
   end
 
   # GET /subads/1/edit
