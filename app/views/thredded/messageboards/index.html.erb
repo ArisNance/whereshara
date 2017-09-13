@@ -1,0 +1,86 @@
+<style>
+ body {
+  background: white;
+ }
+.thredded--messageboard--description{
+color:white;
+font-size:20px;
+letter-spacing: 2px;
+}
+.thredded--messageboard--title{
+font-size:33px;
+color: #ffffff;
+}
+.thredded--messageboard{
+background: linear-gradient(to left,#26A69A,#81C784);
+padding: 4.5rem 3.2rem;
+}
+.thredded--messageboard:hover {
+background: #64bd8b;
+}
+.thredded--button, .thredded--form--submit{
+ background: transparent; 
+border-radius: 20px;
+border: 1px solid #4a90e2;
+color: #4a90e2;
+font-size: 10px;
+}
+.thredded--post-moderation-actions, .thredded--messageboards--actions {
+text-align: center;
+margin-left: 5%;
+}
+.thredded--messageboard--meta {
+color: rgb(105, 119, 127);
+display: inline-block;
+font-weight: 900;
+vertical-align: baseline;
+}
+.thredded--messageboard--byline {
+color: rgba(0, 0, 0, 0.54);
+font-weight: 800;
+margin-bottom: 0;
+}
+.thredded--navigation--search input[type="search"]{
+margin-left: -2.75rem;
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait){
+.thredded--navigation--search input[type="search"]{
+margin-left: 0%;
+}
+}
+</style>
+
+<% content_for :thredded_page_title, t('thredded.messageboard.index.page_title') %>
+<% content_for :thredded_page_id, 'thredded--messageboards-index' %>
+<% content_for :thredded_breadcrumbs, render('thredded/shared/breadcrumbs') %>
+<%= thredded_page do %>
+  <%= view_hooks.messageboards_index.container.render self, groups: @groups do %>
+    <section class="thredded--main-section thredded--messageboards">
+      <%= view_hooks.messageboards_index.list.render self, groups: @groups do %>
+        <% @groups.each do |group| %>
+          <% if group.name.present? %>
+            <h3 class="thredded--messageboards-group--title"><%= group.name %></h3>
+          <% end %>
+          <div class="thredded--messageboards-group">
+            <%= view_hooks.messageboards_index.group.render self, group: group do %>
+              <%= render group.messageboards %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="thredded--messageboards--actions">
+        <% if policy(Thredded::Messageboard.new).create? %>
+          <a class="thredded--button" href="<%= new_messageboard_path %>" rel="nofollow">
+            <%= t('thredded.messageboard.create') %>
+          </a>
+        <% end %>
+         <!--if policy(Thredded::MessageboardGroup.new).create? %>-->
+         <!-- <a class="thredded--button" href=" new_messageboard_group_path %>" rel="nofollow">-->
+         <!--    t('thredded.messageboard_group.create') %>-->
+          <!--</a>-->
+         <!--end %>-->
+      </div>
+    </section>
+  <% end %>
+<% end %>

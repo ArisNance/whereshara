@@ -8,6 +8,7 @@ class Person < ActiveRecord::Base
       person.uid = auth.uid
       person.name = auth.info.name
       person.image = auth.info.image
+      # person.location = auth.info.person_location 
       person.oauth_token = auth.credentials.token
       person.oauth_expires_at = Time.at(auth.credentials.expires_at)
       person.save!

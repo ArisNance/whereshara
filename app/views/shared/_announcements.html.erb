@@ -1,0 +1,57 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where's Hara | Lost Pets</title>
+<style>
+.profile-page .collections img {
+margin-bottom: 30px;
+height: 200px;
+width: 700px;
+}
+.date{
+display: inline-block; 
+padding: 1em 0;
+width: 130px;
+background-color: white;
+border: 1px solid #e6e7e9;
+border-radius: 3em;
+font-weight: 700;
+font-size: 10px;
+text-align: center;
+z-index: 2;
+position: relative;
+margin : 1em 0 2em 0;
+color: #34324b;
+}
+
+
+</style>
+<ul id="timeline">
+
+
+<li class="date" data-placement="right" data-toggle="tooltip" title="Today's Date. Just a reminder!"><%= Date.today.strftime("%B %d %Y") %></li>
+
+<!--start list-->
+<% @subads.each do |subad| %>
+<li class="listing clearfix">
+
+<div class="info">
+  <span class="job_title"><%= link_to subad.title, subad, target: "_blank", class: "job_title" %></span>
+  <span class="job_info"><%= subad.brand %> 
+  <!--San Francisco <span>&bull;</span> March 1st</span>-->
+</div>
+<!--<span class="job_type freelance">Freelance</span>-->
+<!--link_to subad do %>-->
+<!--<i class="fa fa-arrow-circle-right" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="See More!"></i>-->
+<!-- end %>-->
+
+</li>
+<% end %>
+<!--end-->
+<!--<li class="date"><a href="#"></li>-->
+
+</ul>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>

@@ -1,25 +1,271 @@
-<p id="notice"><%= notice %></p>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where's Hara | Lost Pets</title>
+<style>
+.clearfix:before, .clearfix:after {
+	content:" ";
+	display: table;
 
-<h1>Listing Subscriptions</h1>
+}
+.clearfix:after{
+	clear: both;
+}
+.wrapper{
+	width:750px;
+	max-width: 90%;
+	margin: 0 auto;
+}
+.main_header{
+	margin: 5em 0 3em 0;
+}
+.logo img {
+	
+		width:75px;
+		float: left;
+}
+.logo h1{
+	float: left;
+	margin: 0 0 0 1em;
+	text-transform: uppercase;
+	font-size: 1.34em;
+	padding-top: 1.8em;
+	color :#34324b;
+}
+.logo h1 span{
+	font-weight: 400;
+}
+.nav{
+	float:right;
+	padding-top: 2.7em;
+}
+.nav a {
+	color: #74718f;
+	margin-left: 1em;
+	text-decoration: none;
+	font-weight: 550;
+}
+.current{
+	color: #34324b;
+	font-weight: 700;
+	
+}
+#timeline{
+  width: 60%;
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin-left: 15%;
+  margin-top: 5%;
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+}
+#timeline a {
+text-decoration: none;
 
-  <tbody>
-    <% @subscriptions.each do |subscription| %>
-      <tr>
-        <td><%= link_to 'Show', subscription %></td>
-        <td><%= link_to 'Edit', edit_subscription_path(subscription) %></td>
-        <td><%= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+}
+ #timeline:after {
+    content: "";
+    width: 1px;
+    /*background: 1px #e6e7e9;*/
+    height: 90%;
+    position: absolute;
+    top: 3em;
+    left: 3em;
+    z-index: 0; }
+#timeline .listing{
+  background-color: white;
+  border: 1px solid #e6e7e9;
+  border-radius: 0.3em;
+  padding: 1em;
+  margin-bottom: 1em;
+  position: relative;
+  display: table;
+  width: 100%;
+  transition: all .3s ease-in-out;
 
-<br>
 
-<%= link_to 'New Subscription', new_subscription_path %>
+}
+.listing:hover{
+  cursor: pointer;
+  box-shadow: 0px 2px 40px 0 rgba(0,0,0,0.1);
+
+}
+#timeline .listing img,.info,.job_type{
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 0.9em;
+  color: #74718f;
+
+}
+#timeline .image_wrapper{
+  width: 60px;
+}
+#timeline .image_wrapper img{
+  width: 60px;
+  display : block;
+  margin : 0 auto;
+  border-radius: 0.25em;
+}
+.info{
+  line-height: 1.25;
+  width: 640px;
+  padding-left: 25px;
+}
+.job_title{
+  font-weight: 700;
+  font-size: 1.5em;
+  color: #34324b;
+  padding-left: 0px;
+}
+.job_info{
+  color:#74718f;
+  display: block;
+
+}
+.job_info span{
+  margin: 0 .75em;
+}
+.job_type{
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.75em;
+  position: relative;
+  white-space: nowrap;
+  padding-top: .6em;
+  width: 100px;
+}
+.job_type:before{
+  content: " ";
+  background-color: #fd7576;
+  width:10px;
+  height: 10px;
+  border-radius: 100%;
+  position: absolute;
+  left:-20px;
+  top:27px;
+}
+.full_time{
+  color: #fd7576;
+
+}
+.full_time:before{
+background-color:#fd7576;
+}
+.part_time{
+  color: #fec85d;
+
+}
+.part_time:before{
+background-color:#fec85d;
+}
+.freelance{
+  color: #4db8de;
+
+}
+.freelance:before{
+background-color:#4db8de;
+}
+.contract{
+  color: #a378fc;
+
+}
+.contract:before{
+background-color:#a378fc;
+}
+.date{
+  display: inline-block; 
+  padding: 1em 0;
+  width: 100px;
+  background-color: white;
+  border: 1px solid #e6e7e9;
+  border-radius: 3em;
+  font-weight: 700;
+  font-size: 10px;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  margin : 1em 0 2em 0;
+  color: #34324b;
+}
+.load_more{
+  text-align: center;
+
+}
+.button{
+  border : 2px solid #a378fc;
+  outline: none;
+  padding: 1em 3.5em;
+  text-align: center;
+  background: transparent;
+  border-radius: 3em;
+  color: #a378fc;
+  transition:all .3s ease-in-out;
+}
+.button:hover{
+ background-color: #a378fc;
+  color: white;
+
+}
+@media only screen and (max-width: 768px){
+  .main_header{
+  margin: 3em 0;
+}
+.logo{
+   display: block;
+  text-align: center;
+}
+.logo img {
+  
+    float: none;
+
+}
+.logo h1{
+  float: none;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
+
+#timeline a {
+padding-left: 1px !important;
+}
+
+/* iphone 6 Portrait */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+.job_title {
+font-size:20px;
+  }
+}
+</style>
+<ul id="timeline">
+
+
+<li class="date" data-placement="right" data-toggle="tooltip" title="Today's Date. Just a reminder!"><%= Date.today.strftime("%B %d %Y") %></li>
+
+<!--start list-->
+<% @subscription.each do |subscription| %>
+<li class="listing clearfix">
+<div class="image_wrapper">
+<%= image_tag(subscription.pet_image) %>
+</div>
+<div class="info">
+  <span class="job_title"><%= link_to subscription.title, subscription, class: "job_title" %></span>
+  <span class="job_info"><%= subscription.breed %> 
+  <!--San Francisco <span>&bull;</span> March 1st</span>-->
+</div>
+<!--<span class="job_type freelance">Freelance</span>-->
+<!--link_to subscription do %>-->
+<!--<i class="fa fa-arrow-circle-right" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="See More!"></i>-->
+<!-- end %>-->
+
+</li>
+<% end %>
+<!--end-->
+<!--<li class="date"><a href="#"></li>-->
+
+</ul>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>

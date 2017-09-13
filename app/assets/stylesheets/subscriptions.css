@@ -1,32 +1,144 @@
 /*# sourceMappingURL=subscriptions.css.map */
-
 form{
 width:20%;
 margin-left: 40%;
 margin-top: 10%;
 }
-
 body{
-background:linear-gradient(to left,#7b4397,#dc2430);
+background:linear-gradient(to left,#26A69A,#81C784);
 }
-
 .navbar{
 background:white;
 }
-
 label{
 color: aliceblue;
 }
-
 #tags_p{
 color: floralwhite;
 }
-
 #subscription_company{
 font-size: 22px;
 background: transparent;
 color: white;
 border-color: aliceblue;
+}
+.w3-light-grey{
+overflow:scroll;
+}
+.lost_pets{
+display: flex;
+}
+
+.lost{
+opacity: 0.5;
+}
+.btn.btn-icon i.fa, .btn.btn-icon i.now-ui-icons{
+font-size:23px;
+}
+.btn{
+border-radius: 30px !important;
+font-size:10px !important;
+}
+.pet_profile{
+position: absolute;
+margin-left: 72%;
+margin-top: 42%;
+color:#7bab8d;
+z-index:1;
+}
+#report_found{
+margin-top: -20%;
+}
+.lost_at{
+margin-top: -10%;
+position: absolute;
+color: white;
+font-size: 18px;
+font-weight: 600;
+}
+#feature_list{
+font-size: 24px;
+line-height: 40px;
+letter-spacing: 2px;
+}
+.paw{
+position: absolute;
+margin-left: 50%;
+color: #52b690;
+z-index: 1;
+margin-top: -10px;
+}
+#green_paw{
+font-size:40px;
+transform: rotate(180deg);
+}
+.disable{
+pointer-events: none;
+}
+#timeline{
+width:400px;
+}
+
+/*thredder css*/
+.thredded--messageboard--description{
+color:white;
+font-size:20px;
+letter-spacing: 2px;
+}
+.thredded--messageboard--title{
+font-size:33px;
+color: #ffffff;
+}
+.thredded--messageboard{
+background: #90A4AE;
+padding: 4.5rem 3.2rem;
+}
+.thredded--messageboard:hover {
+background: linear-gradient(to left,#26A69A,#81C784);
+}
+.thredded--button, .thredded--form--submit{
+ background: transparent; 
+border-radius: 20px;
+border: 1px solid #4a90e2;
+color: #4a90e2;
+font-size: 10px;
+}
+.thredded--post-moderation-actions, .thredded--messageboards--actions {
+text-align: center;
+margin-left: 5%;
+}
+.thredded--messageboard--meta {
+color: rgb(105, 119, 127);
+display: inline-block;
+font-weight: 900;
+vertical-align: baseline;
+}
+.thredded--messageboard--byline {
+color: rgba(0, 0, 0, 0.54);
+font-weight: 800;
+margin-bottom: 0;
+}
+.thredded--navigation--search input[type="search"]{
+margin-left: -2.75rem;
+}
+
+/*thredder css end*/
+
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) { 
+.litter-box-row {
+margin-left: 0% !important;
+}
+}
+
+/*mac laptop*/
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+.navbar .dropdown.show .dropdown-menu{
+  margin-left:-125px;
+  }
 }
 
 /*this is a dirty edit*/

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+<title>Where's Hara | Home</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -66,6 +66,51 @@ text-transform:capitalize;
 .video-overlay-play-button.is-hidden {
     display: none;
 }
+header.masthead{
+  background: url(""), linear-gradient(to left,#26A69A,#81C784);
+}
+.fa-paw{
+font-size: 10px;
+}
+#group_left{
+margin-left:-15%;
+}
+/*mac laptop*/
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+  #group_left{
+  margin-left:0%;
+  }
+}
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+section.cta .cta-content h2{
+  margin-left:0%;
+  }
+}
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+#adopt{
+  margin-left:30% !important;
+  }
+}
+/*iphone 6*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait){
+section.cta .cta-content h2 {
+margin-left:1%;
+  }
+}
+/*iphone 6*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait){
+#group_left {
+margin-left: 0%;
+}
+}
+/*iphone 6*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait){
+#adopt {
+margin-top: 10% !important;
+margin-left: 15% !important;
+}
+}
 </style>
 </head>
 
@@ -76,24 +121,33 @@ text-transform:capitalize;
 <div class="row h-100">
 <div class="col-lg-7 my-auto">
 <div class="header-content mx-auto">
-<h1 class="mb-5">Don't be charged for that <span style="color:#6ae86f; font-size:larger; font-weight:600;">1</span> subscription you forgot to cancel!</h1>
+<h1 class="mb-5">A Unique Community <span style="color:#6ae86f; font-size:larger; font-weight:600;">for</span> lost Pets<i class="fa fa-paw"></i></h1>
 <!--<a href="#download" class="btn btn-outline btn-xl"> Signup with Facebook</a>-->
-<% if current_person %>
+<% if current_user %>
 <%= link_to 'Help Keep us Free!', home_donate_path, class: "btn btn-outline btn-xl" %>
 <% else %>
-<%= link_to 'Signup with Facebook', "/auth/facebook", id: "sign_in", class: "btn btn-outline btn-xl" %>
+<%= link_to 'Signup with Facebook', "users/auth/facebook", id: "sign_in", class: "btn btn-outline btn-xl" %>
 <% end %>
 </div>
 <br>
-<ul>
+<ul id="feature_list">
   <li>
-    Set Reminders for any subscription or service.
+    Add up to 3 pets
   </li>
   <li>
-    Receive a text message on your phone each time a subscription or service is set to expire.
+    Exchange private messages
   </li>
   <li>
-    Find the best subscriptions around.
+    Find & Schedule pet Play Dates
+  </li>
+  <li>
+    Report your pet Lost at the click of a button
+  </li>
+    <li>
+    Report your pet Found at the click of a button
+  </li>
+    <li>
+  And so much more!
   </li>
 </ul>
 </div>
@@ -105,9 +159,9 @@ text-transform:capitalize;
   <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
   <div class="video-wrapper">
 
-    <iframe width="325" height="180" poster="http://www.creativelysimpledesign.com/wp-content/uploads/2017/08/Screen-Shot-2017-08-19-at-2.08.28-PM.png" src="https://www.youtube.com/embed/zCTu9IKUATE" frameborder="0" allowfullscreen>
+    <!--<iframe width="325" height="180" poster="http://www.creativelysimpledesign.com/wp-content/uploads/2017/08/Screen-Shot-2017-08-19-at-2.08.28-PM.png" src="https://www.youtube.com/embed/zCTu9IKUATE" frameborder="0" allowfullscreen>-->
       
-    </iframe>
+    <!--</iframe>-->
 </div>
 </div>
 <div class="button">
@@ -119,18 +173,23 @@ text-transform:capitalize;
 </div>
 </div>
 </div>
+<span class="paw"><i class="fa fa-paw" id="green_paw"></i></span>
 </header>
-
+<!--adopt section-->
 <section class="cta">
 <div class="cta-content">
 <div class="container">
-<h2>Stop waiting.<br>Start Subscribing.</h2>
-  <%= link_to 'Generate a random email!', home_dummy_path, class: "btn btn-outline btn-xl" %>
+<h2 style="color:#455a64 !important;">Stop waiting.<br>Start Adopting.</h2><%= render 'adopt' %>
+<div id="group_left">
+    <%= link_to 'Take a look!', home_dummy_path, class: "btn btn-outline btn-xl disable" %>
   <br>
-  <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="This feature is in continuous development."></i>
+  <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="This service is coming soon."></i>
 </div>
 </div>
-<div class="overlay"></div>
+</div>
+
+<div class="overlay" style="background-color:white !important;"></div>
+
 </section>
 
 
@@ -139,17 +198,14 @@ text-transform:capitalize;
 <div class="container">
 <div class="row">
 <div class="col-md-8 mx-auto">
-<h2 class="section-heading">We'd like to get a real domain & Keep our service free!</h2>
+<h2 class="section-heading">Help us Keep our service free!</h2>
 <%= link_to 'Make A Donation Now', home_donate_path, class: "btn btn-outline btn-xl" %>
 <br>
 <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Make a secure donation via Paypal."></i>
 <!--<p>Our web-app is completely free and private!</p>-->
 <!--<p>Don't be charged for subscriptions. No signup necessary </p>-->
 <br>
-<div class="badges">
-<a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
-<a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
-</div>
+
 </div>
 </div>
 </div>
@@ -159,22 +215,7 @@ text-transform:capitalize;
 
 
 
-<footer>
-<div class="container">
-<p>&copy; 2017 Developed with <i class="fa fa-heart" style="color:#ffffff"></i> by <a href="http://lavail.io" style="color:#ffffff;" target="blank">Aris Nance</a>. </p>
-<ul class="list-inline">
-<li class="list-inline-item">
-<a href="#">Privacy</a>
-</li>
-<li class="list-inline-item">
-<a href="/donate">Donate</a>
-</li>
-<li class="list-inline-item">
-<a href="https://www.twitter.com/endthis_now" target="blank"><i class="fa fa-twitter"></i></a>
-</li>
-</ul>
-</div>
-</footer>
+
 
 <script>
 var videoPlayButton,

@@ -1,0 +1,8 @@
+OmniAuth.config.logger = Rails.logger
+
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :facebook, '127481351210186', '0291a22a20eeec67c102bb2af01efe0c', :image_size => 'large'
+
+  
+end
+

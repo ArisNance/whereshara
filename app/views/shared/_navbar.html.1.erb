@@ -1,0 +1,86 @@
+<style>
+#dropdownMenu1{
+background:transparent;
+}
+
+li a{
+color: #131212;
+font-size: 16px;
+letter-spacing: 1.5px;
+padding-left: 17px;
+font-weight: 700;
+opacity: 0.9;
+}
+a:hover {
+color: #607D8B;
+text-decoration: none; 
+}
+li{
+text-decoration: none;
+background-color: transparent;
+-webkit-text-decoration-skip: objects;
+font-size: 20px;
+text-transform: uppercase;
+font-weight: 300;
+font-family: sans-serif;
+float: initial;
+}
+
+#sign_in{
+font-size: 13px;
+padding-left: 5px;
+}
+.btn.focus, .btn:focus{
+outline:none;
+box-shadow:none;
+}
+
+.dropdown-menu{
+border:none;
+min-width: 13rem;
+}
+
+#fbook-img{
+border-radius:50%;
+width: 90px;
+}
+
+
+</style>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <%= link_to image_tag("w-logo.png", class: "navbar"), root_path %>
+    </div>
+
+    <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+  <div id="fbook-div">
+    <% if current_person %>
+    Welcome <strong><%= current_person.name %></strong>!
+    <% else %>
+    Toggle Menu
+  <% end %>
+  </div>
+    <span class="caret"></span>
+  </button>
+<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  <% if current_person %>
+  <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+  <strong><li><%= link_to "View Profile", persons_profile_url(current_person) %></li></strong>
+  <% else %>
+  <li id="sign_in"><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+  <% end %>
+</ul>
+</div>
+ 
+  </div> <!-- Subscriptions Model == Pets -->
+  <%= link_to 'Just Lost My Pet!', new_subscription_path, class: "btn btn-outline btn-xl", 'data-toggle' => 'tooltip', 'data-placement' => 'right', :title => 'Post a Lost Pet' %>
+</nav>
+
+<!--tooltips-->
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>

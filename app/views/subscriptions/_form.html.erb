@@ -57,53 +57,80 @@ margin-left: 10%;
 </div>
 <% end %>
 
+<!--Pet specific info-->
 <div class="form-group">
-<%= f.label :your_subscription_title %><br>
-<%= f.text_field :title, placeholder: 'Lets try to keep it short ', class: "form-control border-input" %>
+    <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="As it appears on the collar."></i>
+<%= f.label :Pets_name %><br>
+<%= f.text_field :title, placeholder: 'Pets Name ', class: "form-control border-input", id: "pet_name" %> 
 </div>
 <br>
+
+<div class="form-group">
+<%= f.label :Help_us_identify_your_pet %><br>
+<%= f.select(:gender, options_for_select([['Her'], ['Him']]), class: "company-select") %>
+</div>
+
+
 <br>
 <div class="form-group">
-<%= f.label :Select_a_company %><br>
-    <p id="tags_p">Don't see your Brand? Let us know and We'll add it.  <%= mail_to "nance.aris@gmail.com", "Here", bcc: "nance.aris@gmail.com",
-subject: "Add a Brand", body: "Please include the name or names of the Brands." %>
+    <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Dog, Cat, Reptile, Other."></i>
+<%= f.label :type %><br>
+<%= f.select(:animal, options_for_select([['Dog'], ['Cat'], ['Tarantula'], ['Other']]), class: "company-select") %>
+</div>
+
+<br>
+
+<br>
+<div class="form-group">
+    <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Pitbull, Labrador Retriever, etc."></i>
+<%= f.label :Breed %><br>
+<%= f.text_field :breed, placeholder: 'Pet Breed ', class: "form-control border-input", id: "pet_name" %> 
+</div>
+
+<br>
+<div class="form-group">
+    <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Keep this short and sweet, but be descriptive as possible."></i>
+<%= f.label :Notes %><br>
+<%= f.text_area :notes, placeholder: 'Last seen outside of QFC on Broadway in Capitol Hill. She has on a red collar and about is about 12 pounds. ', class: "form-control border-input", id: "pet_name" %> 
+</div>
+
+<br>
+<i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Optional"></i>
+<%= f.label :Pet_image %><br>
+<%= f.text_field :pet_image, placeholder: 'http://somewebsite.com/petimage.png', class: "form-control border-input", id: "pet_image" %>
+</div>
+<!--end-->
+<br>
+<br>
+<div class="form-group">
+<%= f.label :Select_a_neighborhood %><br>
+    <p id="tags_p">Don't see your Neighborhood or Area? Let us know and We'll add it.  <%= mail_to "nance.aris@gmail.com", "Here", bcc: "nance.aris@gmail.com",
+subject: "Add a Neighborhood or Area", body: "Please include the Neighborhood name or the Area name." %>
 </p>
     <br>
-<%= f.select(:company, options_for_select([['Hulu'], ['Netflix'], ['Itunes'], ['Spotify'], ['SoundCloud'], ['Xbox'], ['Microsoft'], ['TNT'], ['HBO'], ['Amazon'], ['Other']  ]), class: "company-select") %>
+<%= f.select(:company, options_for_select([['First Hill'], ['Pioneer Square'], ['Capitol Hill'], ['Madison Park'], ['Madison Valley'], ['Central District'], ['Downtown'], ['Belltown'], ['Southeast Seattle'], ['Queen Anne'], ['Leschi'], ['West Seattle'], ['Georgetown'], ['Sodo'],['Columbia City'], ['Mt. Baker'], ['Lakewood'], ['Ballard'], ['Fremont'], ['Magnolia'], ['Wallingford'], ['University District'], ['Greenlake'], ['Greenwood'], ['Roosevelt'], ['Lake City'], ['International District'], ['Other']  ]), class: "company-select") %>
 </div>
-<br>
-<br>
+
 <div class="form-group">
 <!--f.datetime_select :start_time, class: "form-control border-input" %>-->
  <!--time_select :subscription, :time, {:class => "form-control time-control" } %>-->
 </div>
 
-<div class="form-group">
-<%= f.label :When_does_your_subscription_end_? %><br>
+<!--<div class="form-group">-->
+<!-- f.label :When_does_your_subscription_end_? %><br>-->
  <!--f.datetime_select :end_time, class: "form-control border-input" %>-->
-<%= date_select :subscription, :time, {:class => "form-control" } %>
-</div>
+<!-- date_select :subscription, :time, {:class => "form-control" } %>-->
+<!--</div>-->
 
 <br>
 <br>
-<div class="form-group">
-<%= f.label :phone_number, :class => 'control-label' %>
-<i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="We don't sell your information."></i>
 
-<div class="col-lg-10">
-<%= f.text_field :phone_number, placeholder: '20612345678', :class => 'form-control' %>
-</div>
-</div>
 <br>
 
-<div class="form-group">
-<%= f.label :The_link_to_cancel_your_account %>
-<i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Optional. Add the profile url here, it'll be quicker to delete it later."></i>
-<%= f.text_field :url, placeholder: 'www.hulu.co/4356/yourprofile', class: "form-control border-input" %>
-</div>
+
 <br>
 <div class="actions">
-<%= f.submit class: "btn btn-primary" %>
+<%= f.submit 'submit', class: "btn btn-outline btn-xl" %>
 </div>
 <br>
 <br>

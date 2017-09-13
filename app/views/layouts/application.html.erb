@@ -3,10 +3,23 @@
 <head>
   <meta name="description" content="WhenDoesItEnd is a free subscription management system. Don't be charged for that 1 subscription you forgot to cancel.">
   <meta name="keywords" content="subscriptions, free online subscriptions, subscription management, online subscription management, free subscriptions">
-  <link rel="icon" type="image/png" href="http://www.creativelysimpledesign.com/wp-content/uploads/2017/08/wf-1.png">
-  <title>When Does it End</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="icon" type="image/png" href="http://www.lavail.io/wp-content/uploads/2017/09/whereshara-logo.png">
+  <!--<title>When Does it End</title>-->
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!--custom-->
+  <%= stylesheet_link_tag 'now_ui_kit', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'demo', media: 'all', 'data-turbolinks-track' => true %>
+  <!--end-->
+
+  <!--custom script-->
+  <%= javascript_include_tag 'now_ui_kit', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery.3.2.1.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'bootstrap_datepicker', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'bootstrap_switch', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'tether.min', 'data-turbolinks-track' => true %>
+  <!--custom end-->
   <%= csrf_meta_tags %>
   <!--tracking code-->
   <%= analytics_init if GoogleAnalytics.valid_tracker? %>
@@ -23,16 +36,24 @@ padding: .75rem 1.25rem;
 margin-bottom: 1rem;
 border: 1px solid transparent;
 border-radius: .25rem;
-font-size: xx-large;
+font-size: inherit;
 position: absolute;
-background: rgba(131, 64, 142, 0.63);
+background:#50ac77;
 color: aliceblue;
+z-index:1032;
 }
 /* iphone 6 Portrait */
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { 
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
 .alert {
-z-index:2;
+z-index:1032;
 font-size:inherit;
+  }
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+.close {
+z-index:1032;
+margin-top: 13px;
+margin-left: 15px;
   }
 }
 </style>
@@ -53,11 +74,25 @@ font-size:inherit;
   <% end %>
 <% end %>
 <%= yield %>
-
+<footer>
+<div class="container">
+<p>&copy; 2017 Developed with <i class="fa fa-heart" style="color:#ffffff"></i> by <a href="http://lavail.io" style="color:#ffffff;" target="blank">Aris Nance</a>. </p>
+<ul class="list-inline">
+<li class="list-inline-item">
+<a href="#">About</a>
+</li>
+<li class="list-inline-item">
+<a href="/donate">Donate</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.twitter.com/endthis_now" target="blank"><i class="fa fa-twitter"></i></a>
+</li>
+</ul>
+</div>
+</footer>
 <script>
 $(".alert" ).fadeOut(5000);
 
 </script>
-
 </body>
 </html>

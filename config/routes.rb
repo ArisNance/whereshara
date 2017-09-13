@@ -2,19 +2,39 @@ Rails.application.routes.draw do
   
   resources :subads, :path => 'freebies'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :subscriptions
-  devise_for :users
+  resources :subscriptions, :path => 'pets' 
   root 'home#index'
+  # thredded engine routes
+  mount Thredded::Engine => '/forum'
+  resource :messageboard, path: 'messageboards', only: [:new]
+  get '/private-topics/new' => 'thredded/private_topics#new', :as => :new_private_topic
   
-  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-  match 'auth/failure', to: redirect('/'), via: [:get, :post]
-  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+  # omniauth Persons model
+  # match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  # match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  # match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   
+  # omniauth for Users model
+  devise_for :users, 
+  :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'edit'}, 
+  :controllers => { 
+    :registrations => "users/registrations",
+    :omniauth_callbacks => "users/omniauth_callbacks"}
+
+  get 'users/:id' => 'users#show', :as => :user_profile
+  # end
   get 'persons/:id/profile' => 'persons#show', :as => :persons_profile
   get 'home/about', :path => 'about'
   get 'home/dummy', :path => 'dummy'
   get 'home/donate', :path => 'donate'
-  
+  # pet found and lost routes
+  get 'subscriptions/:id/lost' => "subscriptions#lost", :as => :subscriptions_lost
+  get 'subscriptions/:id/found' => "subscriptions#found", :as => :subscriptions_found
+  # lost pet board
+  get 'subscriptions/lost_pets' => "subscriptions#lost_pets", :as => :lost_pets, :path => 'lost/pets'
+
+  # end
+  get 'persons/edit'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

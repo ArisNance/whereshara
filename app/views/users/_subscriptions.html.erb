@@ -1,0 +1,86 @@
+<style>
+.box{
+margin-top: 20%;
+}
+
+a {
+color: #9c27b0;
+font-size: 14px;
+text-transform: uppercase;
+}
+
+a:hover {
+color: #983a79 !important;
+}
+
+.avatar{
+box-shadow:none;
+}
+
+.bold{
+font-weight:600;
+}
+
+</style>
+
+
+<% @user.subscriptions.each do |subscription| %>
+<div class="box">
+<div class="avatar">
+<!--needs to be refactored-->
+<% if subscription.company == "Hulu" %>
+<img style= "margin-top: 50%; opacity: 0.6;" src="https://www.hulu.com/press/wp-content/uploads/2016/10/hulu-interactive-rgb-1.png">
+<% elsif subscription.company == "Netflix" %>
+<img style= "margin-top: 50%; opacity: 0.6;" src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c529.png">
+<% elsif subscription.company == "Spotify" %>
+<img style="border-radius: 0px; margin-top: 30%; opacity: 0.6; margin-left: 35px; width: 30%" src="https://images.vexels.com/media/users/3/137413/isolated/preview/4acb8e52632aa9b7c874b878eaf02bc4-spotify-icon-logo-by-vexels.png">
+<% elsif subscription.company == "Xbox" %>
+<img style="border-radius: 0px; margin-top: 35%; margin-left: 42px; width: 25%; opacity:0.6" src="http://diylogodesigns.com/blog/wp-content/uploads/2016/06/Xbox-360-logo-icon-png.png">
+<% elsif subscription.company == "Itunes" %>
+<img style="border-radius: 0px; margin-top: 45%; opacity: 0.6; margin-left: -10px;" src="https://planetared.com/wp-content/uploads/2017/03/itunes.png">
+<% elsif subscription.company == "Microsoft" %>
+<img style="border-radius: 0px; margin-top: 25%; margin-left: 20px; width: 50%" src="http://diylogodesigns.com/blog/wp-content/uploads/2016/04/Microsoft-Logo-icon-png-Transparent-Background.png">
+<% elsif subscription.company == "SoundCloud" %>
+<img style="margin-top: 25%; width: 50%; margin-left: 7%; opacity: 0.6;" src="http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c537.png">
+<% elsif subscription.company == "HBO" %>
+<img style="border-radius: 0px; opacity: 0.6; margin-top: 60%; margin-left: 30" src="https://vignette3.wikia.nocookie.net/logopedia/images/d/d6/HBO_logo_blue.svg/revision/latest/scale-to-width-down/497?cb=20150301002247">
+<% elsif subscription.company == "TNT" %>
+<img style="border-radius: 0px; margin-top: 30%; opacity: 0.6; margin-left: 30px; width: 30%" src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/TNT_(TV_Channel).svg/1200px-TNT_(TV_Channel).svg.png">
+<% elsif subscription.company == "Amazon" %>
+<img style="border-radius: 0px; margin-top: 30%; opacity: 0.6; margin-left: 40px; width: 30%" src="http://www.freelogovectors.net/wp-content/uploads/2016/12/amazon_logo.png">
+<% else %>
+
+<% end %>
+</div>
+<div class="box-inner">
+
+
+<h3 class="name bold"><%= link_to subscription.title, subscription %></h3>
+<h4 class="occupation"> </h4>
+<% if current_user %>
+<!--edit links-->
+<p class="location">
+<%= link_to edit_subscription_path(subscription) do %>
+<i class="fa fa-pencil fa-fw action-icons" data-toggle="tooltip" data-placement="right" title="Edit"></i>
+<% end %>
+
+<%= link_to subscription, method: :delete, data: { confirm: 'Are you sure?' } do %>
+<i class="fa fa-ban fa-fw action-icons" data-toggle="tooltip" data-placement="right" title="Delete"></i>
+<% end %>
+</p>
+<!--end-->
+<% end %>
+<% if subscription.url.blank? %>
+
+<% else %>
+<h3 class="followers-title"><%= link_to 'Subcription Profile', subscription.url, target: "_blank" %>
+</h3>
+<% end %>
+
+</div>
+</div>
+<br>
+<br>
+<% end %>
+
+<!--will_paginate @subscriptions %>-->

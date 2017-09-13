@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<title>Where's Hara | Lost Pets</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) { 
+.btn-xl {
+/*margin-top: -30%;*/
+/*position: absolute;*/
+/*margin-left: 20%;*/
+display:none !important;
+}
+}
+.img-raised{
+width: 300px;
+height: 300px;
+}
+.w3-blue-grey{
+background: linear-gradient(to left,#26A69A,#81C784); !important;
+}
+.w3-light-grey{
+color:#fff !important;
+background: linear-gradient(to left,rgb(250, 250, 250),#81C784)
+}
+</style>
+<body>
+
+<!-- First Grid:Lost Pets -->
+<div class="w3-row">
+  <div class="w3-half w3-light-grey w3-center" style="height:1000px">
+    <div class="w3-padding-64">
+      <h2 style="font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fafafa;letter-spacing: 10px;">Lost Pets</h2>
+      <p>Welcome to Where's Hara. Please look closely at the Pets listed below. Maybe you've seen then around?.</p>
+    </div>
+    <div class="w3-row lost_pets">
+      <% @subscription.each do |subscription| %>
+      <% if subscription.lost? %>
+      <div class="w3-half">
+      <%= link_to image_tag(subscription.pet_image, class: "img-raised img-thumbnail"), subscription %>
+      <br>
+      <span class="lost_at" data-toggle = 'tooltip', data-placement = 'right', title = 'Missing since...'><%= subscription.created_at.strftime("%B %d %Y") %></span>
+      <%= link_to 'Report Found', subscriptions_found_path(subscription.id), class: "btn btn-outline btn-xl", id: "report_found", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'You certify you found this Pet and its safe?' %>
+      </div>
+      <% else %>
+      
+      <% end %>
+    <!--end lost pets-->
+      <% end %>
+    </div>
+   
+    <br>
+  </div>
+  <div class="w3-half w3-blue-grey w3-container" style="height: 1000px">
+    <div class="w3-padding-64 w3-center">
+      <h1 style="font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fafafa;letter-spacing: 10px;"> </h1>
+      <img src="img_avatar3.png" class="w3-margin w3-circle" alt="Person" style="width:50%">
+      <div class="w3-left-align w3-padding-large">
+        <p>Lorem ipusm sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid: Swing By & Contact -->
+<!--<div class="w3-row">-->
+<!--  <div class="w3-half w3-dark-grey w3-container w3-center" style="height:600px">-->
+<!--    <div class="w3-padding-64">-->
+<!--      <h1>Swing By</h1>-->
+<!--    </div>-->
+<!--    <div class="w3-padding-64">-->
+<!--      <p>..for a cup of coffee, or whatever.</p>-->
+<!--      <p>Chicago, US</p>-->
+<!--      <p>+00 1515151515</p>-->
+<!--      <p>test@test.com</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="w3-half w3-teal w3-container" style="height:600px">-->
+<!--    <div class="w3-padding-64 w3-padding-large w3-center">-->
+<!--      <h1>Contact</h1>-->
+<!--      <p class="w3-opacity">GET IN TOUCH</p>-->
+<!--      <form class="w3-container w3-card-2 w3-padding-32 w3-white">-->
+<!--        <div class="w3-section">-->
+<!--          <label>Name</label>-->
+<!--          <input class="w3-input" style="width:100%;" type="text" required>-->
+<!--        </div>-->
+<!--        <div class="w3-section">-->
+<!--          <label>Name</label>-->
+<!--          <input class="w3-input" style="width:100%;" type="text" required>-->
+<!--        </div>-->
+<!--        <div class="w3-section">-->
+<!--          <label>Subject</label>-->
+<!--          <input class="w3-input" style="width:100%;" type="text" required>-->
+<!--        </div>-->
+<!--        <button type="button" class="w3-btn">Send</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+</body>
+</html> 

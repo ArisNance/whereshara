@@ -1,8 +1,8 @@
 class NotificationMailer < ApplicationMailer
     default from: "golikealocal@gmail.com"
-
-  def notification_email(person)
-    @person = person
-    mail(to: @person, subject: 'You have a subscription ending')
+  # Need to insert instance variables in mail template.
+  def notification_email(subscriptions)
+    @subscriptions = @subscriptions
+    mail(to: @subscriptions, subject: 'Your Pet has been located!')
   end
 end

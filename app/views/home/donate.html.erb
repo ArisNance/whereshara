@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+<title>Where's Hara | Donate</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -23,7 +23,19 @@
 display:none;
 }
 body{
-background-color:#ffffff;
+background: linear-gradient(to left,#26A69A,#81C784);
+}
+@media (min-width: 768px){
+section.cta .cta-content h2 {
+    font-size: 80px;
+    margin-left: 1%;
+    }
+}
+/*iphone 6*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait){
+section.cta .cta-content h2 {
+margin-left:1%;
+  }
 }
 </style>
 </head>
@@ -48,8 +60,8 @@ background-color:#ffffff;
     <input type="hidden" name="cmd" value="_donations">
 
     <!-- Specify details about the contribution -->
-    <input type="hidden" name="item_name" value="WhenDoesItEnd">
-    <input type="hidden" name="item_number" value="Domain and Service contribution">
+    <input type="hidden" name="item_name" value="Where's Hara">
+    <input type="hidden" name="item_number" value="Donation Contribution">
     <input type="hidden" name="currency_code" value="USD">
     <!-- Display the payment button. -->
     <input class="btn btn-outline btn-xl" type="image" name="submit" src=""
@@ -61,28 +73,10 @@ background-color:#ffffff;
 </div>
 
 </div>
-<div class="overlay"></div>
 
 </section>
 
 
-
-<footer>
-<div class="container">
-<p>&copy; 2017 WhenDoesItEnd. All Rights Reserved.</p>
-<ul class="list-inline">
-<li class="list-inline-item">
-<a href="#">Privacy</a>
-</li>
-<li class="list-inline-item">
-<a href="#">Terms</a>
-</li>
-<li class="list-inline-item">
-<a href="#">ABOUT</a>
-</li>
-</ul>
-</div>
-</footer>
 
 <!-- Bootstrap core JavaScript -->
 

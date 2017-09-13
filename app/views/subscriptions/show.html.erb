@@ -1,4 +1,85 @@
-<p id="notice"><%= notice %></p>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where's Hara | <%= @subscription.title %></title>
+<style>
+body{
+background:linear-gradient(to left,#26A69A,#81C784);
+}
+.row{
+margin-top: 5%;
+}
+#show_image{
+width: 15%;
+}
+.alert{
+z-index:2;
+}
+.lead{
+font-size: 2.25rem;
+font-weight: 100;
+color: white;
+}
+.mt-5 {
+margin-top: 3rem!important;
+text-transform: capitalize;
+color: azure;
+}
+.card{
+border:none;
+}
+.text-center{
+margin-top: 5%;
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait){
+.text-center{
+margin-top: 30%;
+}
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait){
+#show_image {
+width: 60%;
+}
+}
 
-<%= link_to 'Edit', edit_subscription_path(@subscription) %> |
-<%= link_to 'Back', subscriptions_path %>
+/* iphone 6 Portrait */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+#menu-toggle {
+ display:none !important;
+  }
+}
+
+  </style>
+<!-- Page Content -->
+<div class="container">
+<div class="row">
+<div class="col-lg-12 text-center">
+     <%= image_tag(@subscription.pet_image, id: "show_image", class: "img-thumbnail") %>
+     <br>
+     <br>
+     <!--share on twitter-->
+     <%= link_to "http://twitter.com/home?status= Our #{@subscription.animal} #{@subscription.title} is missing. #{@subscription.title} is a friendly #{@subscription.breed} and was last seen in #{@subscription.company}. If see #{@subscription.gender} report it here #{subad_url(@subscription)}", target: "_blank" do %><i style="font-size: 27px; color: #ffffff;" class="fa fa-twitter" data-placement="right" data-toggle="tooltip" title="Share me on Twitter!"></i><% end %>
+     <!--end-->
+  <h1 class="mt-5"><%= @subscription.title %> the <%= @subscription.breed %></h1>
+  <p class="lead"><%= @subscription.notes %></p>
+  <ul class="list-unstyled">
+    <li></li>
+    <!--<li> link_to 'Report Found', lost_pets_path, target: "_blank", class: "btn btn-outline btn-xl", 'data-toggle' => 'tooltip', 'data-placement' => 'right', :title => 'Report only if you believe you located the Pet!' %>-->
+    <li><%= link_to 'Owner Profile', user_profile_path(@subscription.user), target: "_blank", class: "btn btn-outline btn-xl" %>
+    </li>
+  </ul>
+  
+  <h1 class="mt-5"><span style="font-size:20px; font-weight:100;">Last seen in </span><%= @subscription.company %></h1>
+</div>
+</div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
+
+
+<!-- link_to 'Edit', edit_subad_path(@subscription) %> |-->
+<!--link_to 'Back', subads_path %>-->
