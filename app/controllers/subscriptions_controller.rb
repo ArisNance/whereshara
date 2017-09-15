@@ -86,7 +86,7 @@ def found
   #find each pet owned by the user
   @subscriptions = current_user.subscriptions.find_by(id: params[:id])
   # Sends email to user when after pet is marked foun.
-  NotificationMailer.notification_email(@subscriptions.url).deliver
+ # NotificationMailer.notification_email(@subscriptions.url).deliver
   #once located, update the pet by its id
   @subscriptions.update(lost: false)
   #after updating the column route back to pet board

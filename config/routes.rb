@@ -25,8 +25,8 @@ Rails.application.routes.draw do
   # end
   get 'persons/:id/profile' => 'persons#show', :as => :persons_profile
   get 'home/about', :path => 'about'
-  get 'home/dummy', :path => 'dummy'
   get 'home/donate', :path => 'donate'
+  get 'home/faq', :path => 'faq'
   # pet found and lost routes
   get 'subscriptions/:id/lost' => "subscriptions#lost", :as => :subscriptions_lost
   get 'subscriptions/:id/found' => "subscriptions#found", :as => :subscriptions_found
