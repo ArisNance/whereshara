@@ -78,7 +78,7 @@ def lost
   #once located, update the pet by its id
   @subscriptions.update(lost: true)
   #after updating the column route back to user profile
-  redirect_to user_profile_url(current_user.id), notice: "Your Pet was reported Lost and added to the Community Board."
+  redirect_to lost_pets_url, notice: "Your Pet was reported Lost and added to the Lost pet Board."
 end
 # implementing a sms notification on method in v2
 def found
