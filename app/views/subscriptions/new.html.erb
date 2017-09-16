@@ -1,3 +1,130 @@
 <title>Where's Hara | New Lost Pet</title>
-<%= render 'form' %>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
+a {
+color: #a0dbf9;
+}
+.time-control{
+display:none;
+}
+
+select {
+text-transform: none;
+color: #c12d4d;
+font-size: 16px;
+font-weight: 800;
+}
+
+input#subscription_phone_number{
+color: #a93466;
+font-weight: 700;
+margin-left: -5%;
+}
+
+input#subscription_url{
+color: #a93466;
+font-weight: 700;
+}
+
+label{
+text-transform: uppercase;
+}
+
+/* iphone 6 Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { 
+form {
+width:70%;
+margin-left: 10%;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { 
+.btn-primary {
+/*margin-left: -50%;*/
+  }
+}
+</style>
+<%= form_for(@subscription) do |f| %>
+<% if @subscription.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+  <ul>
+  <% @subscription.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+
+<!--Pet specific info-->
+<div class="form-group">
+    <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="As it appears on the collar."></i>
+<%= f.label :Pets_name %><br>
+<%= f.text_field :title, placeholder: 'Pets Name ', class: "form-control border-input", id: "pet_name" %> 
+</div>
+<br>
+
+<div class="form-group">
+<%= f.label :Help_us_identify_your_pet %><br>
+<%= f.select(:gender, options_for_select([['Her'], ['Him']]), class: "company-select") %>
+</div>
+
+
+<br>
+<div class="form-group">
+    <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Dog, Cat, Reptile, Other."></i>
+<%= f.label :type %><br>
+<%= f.select(:animal, options_for_select([['Dog'], ['Cat'], ['Tarantula'], ['Other']]), class: "company-select") %>
+</div>
+
+<br>
+
+<br>
+<div class="form-group">
+    <i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Pitbull, Labrador Retriever, etc."></i>
+<%= f.label :Breed %><br>
+<%= f.text_field :breed, placeholder: 'Pet Breed ', class: "form-control border-input", id: "pet_name" %> 
+</div>
+
+<br>
+
+<br>
+<i class="fa fa-info-circle" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Optional"></i>
+<%= f.label :Pet_image %><br>
+<%= f.text_field :pet_image, placeholder: 'http://somewebsite.com/petimage.png', class: "form-control border-input", id: "pet_image" %>
+</div>
+<!--end-->
+
+
+<div class="form-group">
+<!--f.datetime_select :start_time, class: "form-control border-input" %>-->
+ <!--time_select :subscription, :time, {:class => "form-control time-control" } %>-->
+</div>
+
+<!--<div class="form-group">-->
+<!-- f.label :When_does_your_subscription_end_? %><br>-->
+ <!--f.datetime_select :end_time, class: "form-control border-input" %>-->
+<!-- date_select :subscription, :time, {:class => "form-control" } %>-->
+<!--</div>-->
+
+<br>
+<br>
+
+<br>
+
+
+<br>
+<div class="actions">
+<%= f.submit 'submit', class: "btn btn-outline btn-xl" %>
+</div>
+<br>
+<br>
+
+<% end %>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
