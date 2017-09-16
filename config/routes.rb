@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :subads, :path => 'freebies'
+  resources :subads, :path => 'announcements'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :subscriptions, :path => 'pets' 
   root 'home#index'
