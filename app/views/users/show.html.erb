@@ -38,9 +38,9 @@ margin-left: 20%;
 margin-left: -10% !important;
 }
 .fa-pencil{
-margin-left: 48%;
-font-size: 40px;
-color: #e6d5ba;
+/*margin-left: 48%;*/
+font-size: 8px;
+/*color: #e6d5ba;*/
 }
 .bg-primary {
 background-color: rgba(207, 216, 220, 0.38) !important;
@@ -183,12 +183,22 @@ overflow-x:hidden;
     <i class="fa fa-info-circle pet_profile" aria-hidden="true" data-placement="right" data-toggle="tooltip" title="Visit this Pets profile."></i>
     <% end %>
     <h6 class="pet_name"><%= subscription.title %></h6>
+    <div class="actions">
+        <%= link_to subscription_edit_path, subscription do %>
+        <i class="fa fa-pencil"></i>
+        <% end %>
+    </div>
     <%= image_tag(subscription.pet_image, class: "img-raised img-thumbnail lost")%>
 
     <%= link_to 'Report Found', subscriptions_found_path(subscription.id), class: "btn btn-outline btn-xl", id: "report_found" %>
 
     <% elsif subscription.user == current_user %>
     <h6 class="pet_name"><%= subscription.title %></h6>
+        <div class="actions">
+        <%= link_to subscription_edit_path, subscription do %>
+        <i class="fa fa-pencil"></i>
+        <% end %>
+    </div>
     <%= image_tag(subscription.pet_image, class: "img-raised img-thumbnail")%>
     <%= link_to 'Report Lost', subscriptions_lost_path(subscription.id), class: "btn btn-outline btn-xl", id: "report_lost", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'Have you checked everywhere? Even checked with the neighbors?' %>
     <% elsif subscription.lost? %>
