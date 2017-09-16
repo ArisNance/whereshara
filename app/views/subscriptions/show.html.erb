@@ -60,7 +60,7 @@ width: 60%;
      <br>
      <br>
      <!--share on twitter-->
-     <%= link_to "http://twitter.com/home?status= Our #{@subscription.animal} #{@subscription.title} is missing. #{@subscription.title} is a friendly #{@subscription.breed} and was last seen in #{@subscription.company}. If see #{@subscription.gender} report it here #{subad_url(@subscription)}", target: "_blank" do %><i style="font-size: 27px; color: #ffffff;" class="fa fa-twitter" data-placement="right" data-toggle="tooltip" title="Share me on Twitter!"></i><% end %>
+     <%= link_to "http://twitter.com/home?status= Our #{@subscription.animal} is missing. #{@subscription.title} is a friendly #{@subscription.breed} and was last seen in #{@subscription.company}. If see #{@subscription.gender} report it here #{subscription_url(@subscription)}", target: "_blank" do %><i style="font-size: 27px; color: #ffffff;" class="fa fa-twitter" data-placement="right" data-toggle="tooltip" title="Share me on Twitter!"></i><% end %>
      <!--end-->
   <h1 class="mt-5"><%= @subscription.title %> the <%= @subscription.breed %></h1>
   <p class="lead"><%= @subscription.notes %></p>
