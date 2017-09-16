@@ -184,7 +184,7 @@ overflow-x:hidden;
     <% end %>
     <h6 class="pet_name"><%= subscription.title %></h6>
     <div class="actions">
-        <%= link_to subscription_edit_path, subscription do %>
+        <%= link_to edit_subscription_path, subscription do %>
         <i class="fa fa-pencil"></i>
         <% end %>
     </div>
@@ -195,7 +195,7 @@ overflow-x:hidden;
     <% elsif subscription.user == current_user %>
     <h6 class="pet_name"><%= subscription.title %></h6>
         <div class="actions">
-        <%= link_to subscription_edit_path, subscription do %>
+        <%= link_to edit_subscription_path, subscription do %>
         <i class="fa fa-pencil"></i>
         <% end %>
     </div>
