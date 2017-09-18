@@ -47,6 +47,7 @@ gem 'thredded', '~> 0.13.4'
 gem 'jquery-rails', "~> 4.3.1"
 gem 'rails-ujs', '~> 5.1.0.beta1'
 
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

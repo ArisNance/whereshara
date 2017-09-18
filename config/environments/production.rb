@@ -79,7 +79,7 @@ Rails.application.configure do
   
   config.action_mailer.default_url_options = { host: '*' }
   
-  GA.tracker = "UA-45939914-9"
+  GA.tracker = "UA-45939914-10"
   
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
