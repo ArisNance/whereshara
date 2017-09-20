@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" />
+<a id="popuplink" href="#inline" style="display:none;"></a>
+<div id="inline" style="display:none;text-align:center;">
+<img src="https://thebeachfurniture.co.nz/newbeach-logo.png" alt="" id="logo">
+<h3 style="margin-top:20px;">Welcome to Where's Hara. <br><br>A new community for pet owners.</h3>
+<br>
+<hr>
+<a href="https://www.twitter.com/whereshara" target="blank"><i class="fa fa-twitter" style="padding-right: 10px;"></i></a>
+<div class="fb-like" data-href="https://facebook.com/whereshara" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+<hr>
+<p>With each new signup our community grows. We're able to reunite lost pets faster, and expand into other services such as adoption and rehoming.</p>
+<p>To learn how the platform works. Visit the <a href="/faq" target="blank">Faq</a> page for videos and  how-to's. Report any platform issues and general questions to the <a href="/forum" target="blank">Community Board</a>.</p>
+
+<p><a href="javascript:;" onclick="jQuery.fancybox.close();" style="background-color:#333;padding:5px 10px;color:#fff;border-radius:5px;text-decoration:none;">Close</a></p>
+</div>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.js"></script>
+
+<!--popup js-->
+<script>
+jQuery(document).ready(function () {
+    function openFancybox() {
+        setTimeout(function () {
+            jQuery('#popuplink').trigger('click');
+        }, 500);
+    };
+    var visited = jQuery.cookie('visited');
+    if (visited == 'yes') {
+         // second page load, cookie active
+    } else {
+        openFancybox(); // first page load, launch fancybox
+    }
+    jQuery.cookie('visited', 'yes', {
+        expires: 365 // the number of days cookie  will be effective
+    });
+    jQuery("#popuplink").fancybox({modal:true, maxWidth: 400, overlay : {closeClick : true}});
+});
+</script>
