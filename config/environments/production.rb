@@ -81,18 +81,18 @@ Rails.application.configure do
   
   GA.tracker = "UA-45939914-10"
   
-  config.action_mailer.delivery_method = :smtp
-  # SMTP settings for gmail
-  config.action_mailer.smtp_settings = {
-   #:address              => "smtp.gmail.com",
-   :port                 => 587,
-   #:user_name            => 'golikealocal@gmail.com',
-   #:password             => 'Pa11word',
-   :authentication       => "plain",
-  :enable_starttls_auto => true
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # # SMTP settings for gmail
+  # config.action_mailer.smtp_settings = {
+  #  #:address              => "smtp.gmail.com",
+  #  :port                 => 587,
+  #  #:user_name            => 'golikealocal@gmail.com',
+  #  #:password             => 'Pa11word',
+  #  :authentication       => "plain",
+  # :enable_starttls_auto => true
+  # }
   
-  config.action_mailer.perform_deliveries = true
+  # config.action_mailer.perform_deliveries = true
   
    # exception handler for errors
   config.exception_handler = { dev: true }
