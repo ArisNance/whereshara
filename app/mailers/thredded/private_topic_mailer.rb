@@ -8,7 +8,7 @@ module Thredded
       headers['X-SMTPAPI'] = email_details.smtp_api_tag('private_topic_mailer')
 
       mail from: email_details.no_reply,
-           to: email_details.no_reply,
+           to: @post.user.email,
            bcc: emails,
            subject: [
              Thredded.email_outgoing_prefix,
