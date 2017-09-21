@@ -46,7 +46,8 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'thredded', '~> 0.13.4'
 gem 'jquery-rails', "~> 4.3.1"
 gem 'rails-ujs', '~> 5.1.0.beta1'
-
+# error pages
+gem 'exception_handler', '~> 0.6.5'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

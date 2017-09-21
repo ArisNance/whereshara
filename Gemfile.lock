@@ -79,6 +79,10 @@ GEM
       responders
       warden (~> 1.2.3)
     erubis (2.7.0)
+    exception_handler (0.6.5)
+      bundler (~> 1.6)
+      rails (>= 4.2.0)
+      responders (~> 2.3)
     execjs (2.7.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
@@ -327,6 +331,7 @@ DEPENDENCIES
   daemons
   delayed_job_active_record
   devise
+  exception_handler (~> 0.6.5)
   figaro
   google-analytics-rails (= 1.1.1)
   jbuilder (~> 2.0)
