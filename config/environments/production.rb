@@ -92,7 +92,7 @@ Rails.application.configure do
   # :enable_starttls_auto => true
   # }
   
-  # config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = true
   
    # exception handler for errors
   config.exception_handler = { dev: true }
