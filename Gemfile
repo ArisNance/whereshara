@@ -48,7 +48,8 @@ gem 'jquery-rails', "~> 4.3.1"
 gem 'rails-ujs', '~> 5.1.0.beta1'
 # error pages
 gem 'exception_handler', '~> 0.6.5'
-
+# share buttons
+gem 'social-share-button'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

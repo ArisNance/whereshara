@@ -12,5 +12,6 @@
  *
  *= require jquery-ui
  *= require_tree .
+ *= require social-share-button
  *= require_self
  */
