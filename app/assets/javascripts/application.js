@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require thredded
 //= require social-share-button
+//*= require trix
 //= require_tree .

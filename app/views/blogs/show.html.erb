@@ -2414,7 +2414,7 @@ border-top-right-radius: 0.2rem;
         </div>
       </div>
 <!--end-->
-        <p class="text-big"><%= simple_format(@blog.content) %></p>
+        <p class="text-big"><%=sanitize  simple_format(@blog.content) %></p>
       </div>
       <div class="col-md-8">
         <div class="form-holder">

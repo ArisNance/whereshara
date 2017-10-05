@@ -50,6 +50,8 @@ gem 'rails-ujs', '~> 5.1.0.beta1'
 gem 'exception_handler', '~> 0.6.5'
 # share buttons
 gem 'social-share-button'
+# trix editor
+gem 'trix'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
